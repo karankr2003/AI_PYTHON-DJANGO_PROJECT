@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 2.5em;
+            color: #f3f3f3;  
+            text-align: center;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 2px 1px 1px rgb(255, 251, 0); 
+            margin-top: 20px;
+            color: transparent;
+        }
+        h3 {
+            color: red;
+        }
+        textarea {
+            width: 80%;
+            margin: 10px 0;
+            padding: 8px;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            font-size: 20px;
+        }
+        button {
+            background-color: #0279f8;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
+        button:hover {
+            background-color: #065fbd;
+        }
+        #generatedQuery {
+            margin-top: 20px;
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 5px;
+            display: inline-block;
+            width: 80%;
+            white-space: pre-wrap;
+            font-family: 'Courier New', Courier, monospace; 
+            text-align: left; 
+            font-size: 20px; 
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 0px;
+        }
+        footer {
+            margin-top: 230px;
+            font-size: 20px;
+            color: #d72b2b;
+        }
+    </style>
+</head>
+<body>
+    <h1>QueryMasterpiece Designer</h1>
+    <style>
+        body {
+            background-image: url('https://securityintelligence.com/wp-content/uploads/2023/08/Big-data-Connection-and-Data-Analysis-Technology-Digital-Technology-Digital-Cyberspace-with-Particles-and-Digital-Data-Technology-Abstract-Background-Concept-3d-rendering.jpeg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            height: 1vh; 
+        }
+    </style>
+    <div>
+        <h3>Provide the statement as indicated below</h3>
+        <textarea id="prompt" rows="4" placeholder="Type your statement prompt here..."></textarea><br>
+        <button onclick="generateQuery()">Generate Query</button>
+        <div id="generatedQuery"></div>
+    </div>
+  
+    <script>
+        async function generateQuery() {
+            const prompt = document.getElementById('prompt').value;
+            const response = await fetch('/generate-query', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt: prompt })
+            });
+            const data = await response.json();
+            document.getElementById('generatedQuery').innerText = data.sql_query; // Directly assign the SQL query
+        }
+    </script>
+</body>
+</html>
