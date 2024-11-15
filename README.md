@@ -1,6 +1,6 @@
 # AI_Python-Django_Project
 Languages- Python, AI, Django, HTML, CSS
-Database- MySql
+Database- MySQL
 
 SQLAlchemyAI is a Python and Django-based web application that converts natural language inputs into SQL queries
  using AI.
