@@ -52,13 +52,10 @@ SQLAlchemyAI is a Python and Django-based web application that converts natural 
         }
     }
     ```
-6. Apply the migrations:
-    ```sh
-    python manage.py migrate
-    ```
+
 7. Start the development server:
     ```sh
-    python manage.py runserver
+    python app.py
     ```
 
 ## Usage
